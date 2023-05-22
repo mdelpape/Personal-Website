@@ -14,9 +14,12 @@ export default function App() {
       </div>
       <div id = 'linkContainer'>
         <img id = 'spaceMan'src = 'https://i.gifer.com/X5NY.gif' width = '100px'/>
-        <img id = 'github' src = 'https://git-scm.com/images/logos/downloads/Git-Logo-White.png' width = '100px' onClick = {() => {
+        <img id = 'github' src = 'https://git-scm.com/images/logos/downloads/Git-Logo-White.png' width = '70px' onClick = {() => {
         window.location.href = 'https://github.com/mdelpape'
-        }}/>
+      }}/>
+      <img  id = 'linkedIn' src = 'https://www.freeiconspng.com/thumbs/linkedin-logo-png/displaying-19-gallery-images-for-linkedin-logo-png-25.png'  width = '30px' onClick = {() => {
+        window.location.href = 'https://www.linkedin.com/in/michael-del-pape-6824a9163/'
+      }}/>
       </div>
 
     </div>)
