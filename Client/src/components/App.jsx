@@ -20,6 +20,7 @@ export default function App() {
       <img  id = 'linkedIn' src = 'https://www.freeiconspng.com/thumbs/linkedin-logo-png/displaying-19-gallery-images-for-linkedin-logo-png-25.png'  width = '30px' onClick = {() => {
         window.location.href = 'https://www.linkedin.com/in/michael-del-pape-6824a9163/'
       }}/>
+
       </div>
 
     </div>)
@@ -39,7 +40,7 @@ export default function App() {
           <p id = 'navTitle' onClick = {() => {Contact(setContent)}}>Contact</p>
         </div>
       </div>
-      <div>
+      <div id = 'content'>
         {content}
       </div>
     </div>

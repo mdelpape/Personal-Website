@@ -4,7 +4,7 @@ export default function Portfolio (setContent) {
 
 
   setContent (
-    <div id="Resume">
+    <div id="Portfolio">
       <h1>Portfolio</h1>
     </div>
   );

@@ -4,7 +4,7 @@ export default function About (setContent) {
 
 
   setContent (
-    <div id="Resume">
+    <div id="About">
       <h1>About</h1>
     </div>
   );

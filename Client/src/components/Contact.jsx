@@ -4,7 +4,7 @@ export default function Contact (setContent) {
 
 
   setContent (
-    <div id="Resume">
+    <div id="Contact">
       <h1>Contact</h1>
     </div>
   );
