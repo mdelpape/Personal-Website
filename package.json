@@ -18,5 +18,10 @@
     "style-loader": "^3.3.3",
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1"
-  }
+  },
+  "scripts": {
+    "dev": "npx webpack --watch --mode development & npx nodemon --watch ./server ./server/index.js",
+    "build": "npx webpack --mode production",
+    "start": "node ./server/index.js"
+}
 }
