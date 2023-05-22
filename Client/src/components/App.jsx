@@ -12,10 +12,13 @@ export default function App() {
         <h1 id = 'homeName'>Michael Del Pape</h1>
         <img id = 'moon' src = 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Moon_rotating_full_160px.gif'/>
       </div>
-      <img id = 'spaceMan'src = 'https://i.gifer.com/X5NY.gif' width = '100px'/>
-      <img id = 'github' src = 'https://git-scm.com/images/logos/downloads/Git-Logo-White.png' width = '100px' onClick = {() => {
+      <div id = 'linkContainer'>
+        <img id = 'spaceMan'src = 'https://i.gifer.com/X5NY.gif' width = '100px'/>
+        <img id = 'github' src = 'https://git-scm.com/images/logos/downloads/Git-Logo-White.png' width = '100px' onClick = {() => {
         window.location.href = 'https://github.com/mdelpape'
-      }}/>
+        }}/>
+      </div>
+
     </div>)
 
 
