@@ -3,6 +3,7 @@ import Resume from './Resume.jsx';
 import Portfolio from './Portfolio.jsx';
 import About from './About.jsx';
 import Contact from './Contact.jsx';
+import Game from './Game.jsx'
 
 export default function App() {
   const home =
@@ -38,6 +39,7 @@ export default function App() {
           <p id = 'navTitle' onClick = {() => {Portfolio(setContent)}}>Portfolio</p>
           <p id = 'navTitle' onClick = {() => {About(setContent)}}>About</p>
           <p id = 'navTitle' onClick = {() => {Contact(setContent)}}>Contact</p>
+          <p id = 'navTitle' onClick = {() => {Game(setContent)}}>Game</p>
         </div>
       </div>
       <div id = 'content'>
