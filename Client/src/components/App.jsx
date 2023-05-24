@@ -39,7 +39,7 @@ export default function App() {
           <p id = 'navTitle' onClick = {() => {Portfolio(setContent)}}>Portfolio</p>
           <p id = 'navTitle' onClick = {() => {About(setContent)}}>About</p>
           <p id = 'navTitle' onClick = {() => {Contact(setContent)}}>Contact</p>
-          <p id = 'navTitle' onClick = {() => {Game(setContent)}}>Game</p>
+          {/* <p id = 'navTitle' onClick = {() => {Game(setContent)}}>Game</p> */}
         </div>
       </div>
       <div id = 'content'>
