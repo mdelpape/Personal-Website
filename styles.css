@@ -63,11 +63,13 @@
 }
 
 #ResumeContainer {
+  position: relative;
   margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow-y: auto;
+  overflow-x: hidden;
   /* overflow-x: scroll; */
   height: 600px;
 }
@@ -115,10 +117,9 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 80%;
-  left: 50%;
+  bottom: 150px;
+  left: 48%;
   transform: translate(-50%, -50%);
-
 }
 
 #github:hover {
@@ -140,29 +141,14 @@
 }
 
 #resumeImg {
-  height: 1000px;
-  margin-top: 500px;
+  height: auto;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  /* margin-top: 500px; */
 }
 
 #content {
   grid-row: 2;
 }
 
-#arena {
-  width: 600px;
-  height: 500px;
-  border: 1px solid white;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  background-color: red;
-}
