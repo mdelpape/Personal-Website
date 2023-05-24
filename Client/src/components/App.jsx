@@ -3,7 +3,7 @@ import Resume from './Resume.jsx';
 import Portfolio from './Portfolio.jsx';
 import About from './About.jsx';
 import Contact from './Contact.jsx';
-import Game from './Game.jsx'
+
 
 export default function App() {
   const home =

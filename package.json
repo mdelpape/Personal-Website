@@ -23,7 +23,8 @@
   "homepage": "https://michaeldelpape.dev",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d client/dist",
+    "deploy": "npm run build && mkdir -p docs && cp -R client/dist/* docs && cp -R server docs && touch docs/.nojekyll && echo 'yourdomain.com' > docs/CNAME && gh-pages -d docs",
+
     "dev": "npx webpack --watch --mode development & npx nodemon --watch ./server ./server/index.js",
     "build": "npx webpack --mode production",
     "start": "node ./server/index.js"
