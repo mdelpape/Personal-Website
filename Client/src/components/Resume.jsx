@@ -1,13 +1,20 @@
-import React, {useState} from 'react';
-import ResumeImg from "../tools/michaelResume.png"
+import React, { useState, useEffect } from 'react';
+import ResumeImg from "../tools/michaelResume.png";
+import { Document, Page, pdfjs } from 'react-pdf';
+import pdfFile from './MichaelDelPapeResumecopy.pdf';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
 
-export default function Resume (setContent) {
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-
+const Resume = (setContent) => {
   setContent (
     <div id="ResumeContainer">
-      {/* <h1 style = {{color: 'white'}}>Resume</h1> */}
-      <img id = 'resumeImg'src = {ResumeImg}/>
+      <Document file={pdfFile} >
+        <Page pageNumber={1}/>
+      </Document>
     </div>
   );
 }
+
+export default Resume;

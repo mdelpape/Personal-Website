@@ -32,6 +32,18 @@ module.exports = {
         test: /.(jpe?g|png|gif|svg)$/i,
         use: 'file-loader',
       },
+      {
+        test: /\.pdf$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'pdfs/', // Change the output directory as desired
+            },
+          },
+        ],
+      },
     ],
   },
 };
