@@ -31,6 +31,7 @@
   justify-content: space-between;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   grid-row: 1;
+  z-index: 5;
 }
 
 #content {
@@ -39,7 +40,10 @@
 }
 #name {
   margin-left: 30px;
-
+  font-family: Arial, sans-serif; /* Change the font-family to your desired font */
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  color: #000000;
 }
 
 #buttons {
@@ -49,6 +53,10 @@
   gap: 10px;
   font-size: 19px;
 
+}
+
+#navTitle {
+  font-size: 20px;
 }
 
 #navTitle:hover {
@@ -68,14 +76,11 @@
 
 #ResumeContainer {
   position:relative;
-  margin-top: 50px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow-y: auto;
-  overflow-x: hidden;
   /* overflow-x: scroll; */
-  height: 70vh;
+  margin-top: 30px;
+  height: calc(100vh - 100px);
 }
 
 @keyframes orbit {
@@ -144,3 +149,51 @@
   padding: 0px 10px;
 }
 
+#test {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust this value to your needs */
+}
+
+.aboutContainer {
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+}
+
+.textContainer {
+  margin-left: 10px; /* Adjust this value to create spacing between image and text */
+  font-family: Arial, sans-serif; /* Change the font-family to your desired font */
+  font-size: 20px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+}
+
+.project {
+  height: 200px;
+  width: 300px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+#menu {
+  position: static;
+  background-color: gainsboro;
+  opacity: 75%;
+  border-radius: 5px;
+  width: 150px;
+  margin-top: 300px;
+  margin-right: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.burger {
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+.burger:hover {
+  font-size: 35px;
+  cursor: pointer;
+}
