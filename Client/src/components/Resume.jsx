@@ -8,11 +8,27 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const Resume = (setContent) => {
-  setContent (
-    <div id="ResumeContainer">
-      <Document file={pdfFile} >
-        <Page pageNumber={1}/>
-      </Document>
+
+  setContent(
+    <div style={{
+      overflow: 'auto',
+      height: 'calc(100vh - 100px)',
+    }}>
+      <div style={{
+        color: 'white',
+        textAlign: 'center',
+        fontSize: '40px',
+        fontFamily: 'Roboto, sans-serif',
+        marginTop: '20px',
+      }}>
+        Resume
+      </div>
+      <div id="ResumeContainer">
+        <Document file={pdfFile} >
+          <Page pageNumber={1} />
+        </Document>
+      </div>
+
     </div>
   );
 }

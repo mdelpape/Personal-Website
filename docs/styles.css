@@ -31,11 +31,19 @@
   justify-content: space-between;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   grid-row: 1;
+  z-index: 5;
 }
 
+#content {
+  margin-top: 100px;
+  background-color: black;
+}
 #name {
   margin-left: 30px;
-
+  font-family: Arial, sans-serif; /* Change the font-family to your desired font */
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+  color: #000000;
 }
 
 #buttons {
@@ -45,6 +53,10 @@
   gap: 10px;
   font-size: 19px;
 
+}
+
+#navTitle {
+  font-size: 20px;
 }
 
 #navTitle:hover {
@@ -63,13 +75,12 @@
 }
 
 #ResumeContainer {
-  margin-top: 50px;
+  position:relative;
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow-y: auto;
   /* overflow-x: scroll; */
-  height: 600px;
+  margin-top: 30px;
+  height: calc(100vh - 100px);
 }
 
 @keyframes orbit {
@@ -115,10 +126,9 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 80%;
-  left: 50%;
+  bottom: 150px;
+  left: 48%;
   transform: translate(-50%, -50%);
-
 }
 
 #github:hover {
@@ -139,30 +149,74 @@
   padding: 0px 10px;
 }
 
-#resumeImg {
-  height: 1000px;
-  margin-top: 500px;
+#test {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust this value to your needs */
 }
 
-#content {
-  grid-row: 2;
+.aboutContainer {
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
 }
 
-#arena {
-  width: 600px;
-  height: 500px;
+.textContainer {
+  margin-left: 10px; /* Adjust this value to create spacing between image and text */
+  font-family: Arial, sans-serif; /* Change the font-family to your desired font */
+  font-size: 20px; /* Adjust the font size as needed */
+  font-weight: bold; /* Adjust the font weight as needed */
+}
+
+
+#menu {
+  position: static;
+  background-color: gainsboro;
+  opacity: 75%;
+  border-radius: 5px;
+  width: 150px;
+  margin-top: 300px;
+  margin-right: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.burger {
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+.burger:hover {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.projectImg {
+  height: 220px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.project {
+  height: 300px;
+  width: 500px;
   border: 1px solid white;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: rgba(220, 220, 220, 0.184);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  background-color: red;
+.git {
+  font-size: 35px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.git:hover {
+  font-size: 40px;
+  cursor: pointer;
 }
