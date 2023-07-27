@@ -7,7 +7,7 @@ import Canvas from './Canvas.jsx'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import roboPic from './Subject.png'
 
-
+const particlesArray = [];
 
 export default function App() {
   const canvasRef = useRef(null);
@@ -35,7 +35,7 @@ export default function App() {
   const [content, setContent] = useState(home);
   const [menuOpen, setMenuOpen] = useState(false);
   const [canvasActive, setCanvasActive] = useState(false);
-          console.log(canvasActive)
+
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
@@ -74,36 +74,67 @@ export default function App() {
 
 
   const mouse = {
-    x: null,
-    y: null,
+    x: undefined,
+    y: undefined,
   }
 
   useEffect(() => {
     if (document.querySelector('.canvas') && canvasActive) {
-      var canvas = canvasRef.current;
+      const canvas = canvasRef.current;
       if (canvas) {
         canvas.width = 2000;
         canvas.height = 2000;
         var c = canvas.getContext('2d');
-        c.fillStyle = 'blue'
-        c.beginPath();
-        c.arc(100, 100, 20, 0, Math.PI * 2);
-        c.fill();
+
       }
-      canvas.addEventListener('click', function (event) {
+      canvas.addEventListener('mousemove', function (event) {
         mouse.x = event.x;
         mouse.y = event.y;
-        drawCircle();
-
       })
-      function drawCircle() {
-        c.fillStyle = 'blue';
-        c.beginPath();
-        c.arc(mouse.x, mouse.y - 100, 20, 0, Math.PI * 2);
-        c.fill();
-        console.log('drew circle')
+
+      class Particle {
+        constructor(){
+          // this.x = mouse.x;
+          // this.y = mouse.y;
+          this.x = Math.random()*canvas.width
+          this.y = Math.random()*canvas.height
+          this.size = Math.random() * 15 + 1;
+          this.speedX = Math.random() * 3 - 1.5;
+          this.speedY = Math.random() * 3 - 1.5;
+        }
+        update(){
+          this.x += this.speedX;
+          this.y += this.speedY;
+        }
+        draw(){
+          c.fillStyle = 'blue';
+          c.beginPath();
+          c.arc(this.x, this.y - 100, this.size, 0, Math.PI * 2);
+          c.fill();
+          console.log('drew circle')
+        }
       }
 
+      function init() {
+        for (let i = 0; i < 100; i ++) {
+          particlesArray.push(new Particle());
+        }
+      }
+      init();
+      console.log(particlesArray)
+      function handleParticles(){
+        for (let i = 0;i < particlesArray.length; i ++) {
+          particlesArray[i].update();
+          particlesArray[i].draw();
+        }
+      }
+
+      function animate() {
+        c.clearRect(0,0, canvas.width, canvas.height);
+        handleParticles();
+        requestAnimationFrame(animate)
+      }
+      animate();
     }
   }, [content]);
 
