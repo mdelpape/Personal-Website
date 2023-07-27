@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Resume from './Resume.jsx';
 import Portfolio from './Portfolio.jsx';
 import About from './About.jsx';
@@ -9,9 +9,11 @@ import roboPic from './Subject.png'
 
 
 export default function App() {
+  const canvasRef = useRef(null);
   const home =
     (
       <div>
+
         <div id='home'>
           <h1 id='homeName'>Michael Del Pape</h1>
           <img id='moon' src='https://upload.wikimedia.org/wikipedia/commons/b/b8/Moon_rotating_full_160px.gif' />
@@ -24,11 +26,29 @@ export default function App() {
           <img id='linkedIn' src='https://www.freeiconspng.com/thumbs/linkedin-logo-png/displaying-19-gallery-images-for-linkedin-logo-png-25.png' width='30px' onClick={() => {
             window.location.href = 'https://www.linkedin.com/in/michael-del-pape-6824a9163/'
           }} />
-
         </div>
-
+        <canvas className='canvas' ref={canvasRef}>
+        </canvas>
       </div>)
+const mouse = {
+  x: null,
+  y: null,
+}
 
+    useEffect(() => {
+      var canvas = canvasRef.current;
+      if (canvas) {
+        var c = canvas.getContext('2d');
+        c.fillStyle = 'blue'
+        c.beginPath();
+        c.arc(100, 100, 20, 0, Math.PI*2);
+        c.fill();
+      }
+      canvas.addEventListener('click', function(event){
+        mouse.x = event.x;
+        console.log(event);
+      })
+    }, []);
 
   const [content, setContent] = useState(home);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,7 +77,7 @@ export default function App() {
   return (
     <div id="App">
       <div id='head'>
-        <img src = {roboPic} style={{width:'100px',marginLeft:'20px'}}></img>
+        <img src={roboPic} style={{ width: '100px', marginLeft: '20px' }}></img>
         {/* <header id='name'>Michael Del Pape</header> */}
         {!menuOpen && (
           <i onClick={toggleMenu} className="fa fa-bars burger" aria-hidden="true"></i>
