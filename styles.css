@@ -220,3 +220,34 @@
   font-size: 40px;
   cursor: pointer;
 }
+
+.canvas {
+  /* height: 1000px;
+  width: 1000px; */
+  z-index: 10;
+}
+
+.responsive-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media (min-width: 800px) {
+  #menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+#menuContainer {
+  display: flex;
+  gap: 20px;
+  margin-right: 20px;
+}
+
+#prof:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
