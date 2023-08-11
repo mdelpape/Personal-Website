@@ -9,6 +9,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pd
 
 const Resume = (setContent) => {
 
+
+
+
   setContent(
     <div style={{
       overflow: 'auto',
@@ -23,11 +26,11 @@ const Resume = (setContent) => {
       }}>
         Resume
       </div>
-      <div id="ResumeContainer">
-        <Document file={pdfFile} >
-          <Page pageNumber={1} />
-        </Document>
-      </div>
+      <div className="resume-container" id="ResumeContainer">
+  <Document file={pdfFile}>
+    <Page pageNumber={1} />
+  </Document>
+</div>
 
     </div>
   );

@@ -85,36 +85,42 @@ export default function App() {
         canvas.width = 2000;
         canvas.height = 2000;
         var c = canvas.getContext('2d');
-
       }
-      canvas.addEventListener('mousemove', function (event) {
-        mouse.x = event.x;
-        mouse.y = event.y;
-      })
-      canvas.addEventListener('mousemove', function (event) {
-        mouse.x = event.x;
-        mouse.y = event.y;
+
+      const handleMoveEvent = function (event) {
+        let x, y;
+        if (event.type === 'mousemove') {
+          x = event.x;
+          y = event.y;
+        } else if (event.type === 'touchmove') {
+          x = event.touches[0].clientX;
+          y = event.touches[0].clientY;
+        }
+        mouse.x = x;
+        mouse.y = y;
         particlesArray.push(new Particle());
-      })
+      };
+
+      canvas.addEventListener('mousemove', handleMoveEvent);
+      canvas.addEventListener('touchmove', handleMoveEvent);
+
 
       class Particle {
-        constructor(){
+        constructor() {
           this.x = mouse.x;
           this.y = mouse.y;
-          // this.x = Math.random()*canvas.width
-          // this.y = Math.random()*canvas.height
           this.size = Math.random() * 15 + 1;
           this.speedX = Math.random() * 3 - 1.5;
           this.speedY = Math.random() * 3 - 1.5;
 
           this.color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
         }
-        update(){
+        update() {
           this.x += this.speedX;
           this.y += this.speedY;
           if (this.size > 0.2) this.size -= 0.05;
         }
-        draw(){
+        draw() {
           c.fillStyle = this.color;
           c.beginPath();
           c.arc(this.x, this.y - 100, this.size, 0, Math.PI * 2);
@@ -122,14 +128,8 @@ export default function App() {
         }
       }
 
-      // function init() {
-      //   for (let i = 0; i < 100; i ++) {
-      //     particlesArray.push(new Particle());
-      //   }
-      // }
-      // init();
-      function handleParticles(){
-        for (let i = 0;i < particlesArray.length; i ++) {
+      function handleParticles() {
+        for (let i = 0; i < particlesArray.length; i++) {
           particlesArray[i].update();
           particlesArray[i].draw();
           if (particlesArray[i].size <= 0.3) {
@@ -139,15 +139,24 @@ export default function App() {
         }
       }
 
+      let animationId; // Declare a variable to hold the animation ID
+
       function animate() {
-        // c.clearRect(0,0, canvas.width, canvas.height);
-        c.fillStyle = 'rgba(0,0,0,0.1)';
-        c.fillRect(0,0, canvas.width, canvas.height);
+        c.fillStyle = 'rgba(0,0,0,5)';
+        c.fillRect(0, 0, canvas.width, canvas.height);
         handleParticles();
-        requestAnimationFrame(animate)
+        animationId = requestAnimationFrame(animate); // Store the animation ID
       }
       animate();
+
+      return () => {
+        canvas.removeEventListener('mousemove', handleMoveEvent);
+        canvas.removeEventListener('touchmove', handleMoveEvent);
+        cancelAnimationFrame(animationId);
+      };
+
     }
+
   }, [content]);
 
 
@@ -168,7 +177,7 @@ export default function App() {
             <p id='navTitle' onClick={() => { Resume(setContent); setCanvasActive(false); setMenuOpen(false); }}>Resume</p>
             <p id='navTitle' onClick={() => { Portfolio(setContent); setCanvasActive(false); setMenuOpen(false); }}>Portfolio</p>
             <p id='navTitle' onClick={() => { About(setContent); setCanvasActive(false); setMenuOpen(false); }}>About</p>
-            <p id='navTitle' onClick={() => { Canvas(setContent); setCanvasActive(true); setMenuOpen(false); }}>Canvas</p>
+            <p id='navTitle' onClick={() => { Canvas(setContent, canvasRef); setCanvasActive(true); setMenuOpen(false); }}>Canvas</p>
 
           </div>
         )}
